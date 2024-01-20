@@ -42,6 +42,6 @@ Clears the Timer0 overflow flag.
 Increments the flag to indicate the delay is complete.
 
 # TODO LIST
--[ ] Fix the Timer0 so it can count in milliseconds accurately. Right now, it only works **only** for the value us=500.
--[ ] Implement the rest of the functions of DS18B20
--[ ] Compile an *actual* program that can measure temperature:)
+- [ ] Fix the Timer0 so it can count in milliseconds accurately. Right now, it only works **only** for the value us=500.
+- [ ] Implement the rest of the functions of DS18B20
+- [ ] Compile an *actual* program that can measure temperature:)
