@@ -28,7 +28,7 @@ Combines the bits to form the byte of data.
 
 ## NOT WORKING YET 
 
-###DS18B20 Delay Function (DS18B20_DelayMicroseconds):
+### DS18B20 Delay Function (DS18B20_DelayMicroseconds):
 
 Configures Timer0 for a specified delay in microseconds.
 Uses a 16-bit mode with the internal instruction cycle clock (Fosc/4).
