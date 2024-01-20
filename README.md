@@ -1,7 +1,7 @@
 # Digital-Thermometer
 A digital thermometer implemented with the DS18B20 programmable 1-wire digital thermometer and the PIC18F4550 MCU.
 
-# DS12B20.c
+# DS18B20.c
 
 ### Initialization of DS18B20 (DS18B20_init):
 
@@ -40,3 +40,8 @@ Enables Timer0 interrupts, waits for the delay to complete, and then disables Ti
 
 Clears the Timer0 overflow flag.
 Increments the flag to indicate the delay is complete.
+
+# TODO LIST
+[] Fix the Timer0 so it can count in milliseconds accurately. Right now, it only works **only** for the value us=500.
+[] Implement the rest of the functions of DS18B20
+[] Compile an *actual* program that can measure temperature:)
