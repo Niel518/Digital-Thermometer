@@ -23,7 +23,7 @@ Uses bit manipulation to extract each bit of data and store it in an array.
 Combines the bits to form the byte of data.
 DS18B20 Delay Function (DS18B20_DelayMicroseconds):
 
-## NOT WORKING YET #
+### NOT WORKING YET 
 Configures Timer0 for a specified delay in microseconds.
 Uses a 16-bit mode with the internal instruction cycle clock (Fosc/4).
 Disables the prescaler to achieve precise microsecond delays.
