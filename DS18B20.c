@@ -76,14 +76,12 @@ void DS18B20_DelayMicroseconds(unsigned int us) {
     // Configure Timer0 for the delay
     T0CONbits.T08BIT = 0b0; // 16-bit mode
     T0CONbits.T0CS = 0b0;   // Internal instruction cycle clock (Fosc/4)
-    T0CONbits.PSA = 0b0;    // Disable prescaler
+    T0CONbits.PSA = 0b1;    // Enable prescaler
+    T0CONbits.T0PS = 0b000; // Prescaler value set to 1:2
     T0CONbits.TMR0ON = 0b1; // Timer0 is now ON
-    
-    // Calculate the number of Timer0 overflows needed for the delay
-    unsigned int overflows = us*0.1;
 
     // Load the initial Timer0 value
-    TMR0 = 65536 - overflows;
+    TMR0 = 65536 - us;
     
     delayFlag = 0;
    
