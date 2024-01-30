@@ -4,10 +4,6 @@
 //Family Code
 #define MODEL_DS18B20 0x28
 
-//MSB and LSB of the temperature register
-#define TMP_MSB 0b1
-#define TMP_LSB 0b0
-
 //8-bit CRC Generator
 #define CRC 0b8
 
