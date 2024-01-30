@@ -36,13 +36,19 @@ void DS18B20_reset(void) {
 
 // Function to write a byte of data to DS18B20
 void DS18B20_Write(volatile unsigned char data){
-    unsigned char i;
+    unsigned char i; // Counter for loop
     bit smol; // A bit variable to hold each bit of 'data'.
     TRISAbits.RA0 = 0b0; // Set RA0 as output.
     
-    for (i=0; i<8; i++){ // Loop through each bit of 'data'.
+    // Loop through each bit of 'data'.
+    for (i=0; i<8; i++){ 
+        LATAbits.LA0 = 0b1; // Set RA0 high
+        DS18B20_DelayMicroseconds(2);
+        LATAbits.LA0 = 0b0; // Set RA0 low
         smol = (data >> i) & 0x01; // Extract the i-th bit of 'data'.
-        if (!smol){ // If the bit is 0...
+
+        // If the bit is 0...
+        if (!smol){ 
             LATAbits.LA0 = 0b0; // ...set RA0 low...
             DS18B20_DelayMicroseconds(90); // ...and wait for 90 microseconds.
         }else { // If the bit is 1...
@@ -60,8 +66,10 @@ char DS18B20_Read(void){
     TRISAbits.RA0 = 0b0; // Set RA0 as output
     
     for (i=0; i<8; i++){ // Loop through each bit
+        LATAbits.LA0 = 0b1;
+        DS18B20_DelayMicroseconds(2);
         LATAbits.LA0 = 0b0; // Pull the line low
-        DS18B20_DelayMicroseconds(5); // Wait for 15 microseconds
+        DS18B20_DelayMicroseconds(5); // Wait for 5 microseconds
         TRISAbits.RA0 = 0b1; // Release the line
         DS18B20_DelayMicroseconds(15); // Wait for 15 microseconds before reading the bit
         bitArray[i] = PORTAbits.RA0; // Read the bit
